@@ -24,10 +24,10 @@ author:
   avatar           : "profile.png"
   name             : "Ben Seeger"
   pronouns         : # example: "she/her"  
-  bio              : "Assistant Professor at UNC Chapel Hill STOR department"
+  bio              : "Assistant Professor"
   location         : 
-  employer         : "University of North Carolina at Chapel Hill"
-  uri              : "bdseeger.github.io"
+  employer         : "UNC Chapel Hill"
+  uri              : #
   email            : "bseeger@unc.edu" 
 
   # Academic websites
