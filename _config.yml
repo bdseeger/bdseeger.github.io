@@ -21,7 +21,7 @@ repository               : "bdseeger/bdseeger.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "front_page.jpeg"
+  avatar           : "front_page.jpg"
   name             : "Ben Seeger"
   pronouns         : # example: "she/her"  
   bio              : "Assistant Professor"
