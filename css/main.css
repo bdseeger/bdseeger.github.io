@@ -1,0 +1,375 @@
+/* This CSS style sheet is based on that main style sheet used by */
+/* Zev Chonoles for his academic website at */
+/* http://math.uchicago.edu/~chonoles.*/
+/* This material was used under the CC-BY 4.0 license. */
+
+
+/*===================*/
+/*=    CSS Reset                        =*/
+/*===================*/
+
+html, body, div, span, main, header, footer, hr, nav, img, table, tr, td, h1, h2, h3
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+
+/*=======================*/
+/*=    General Stuff   								 =*/
+/*=======================*/
+
+
+/*  Causes the vertical scrollbar to always be present. Otherwise,    */
+/*  the header would shift slightly when switching from a page where  */
+/*  the scrollbar was present to one where it wasn't, or vice versa.  */
+html
+{
+  overflow-y: scroll;
+}
+
+/*  Sets the font.  */
+body
+{
+  font: 11pt Verdana, Geneva, sans-serif;
+}
+
+/*  Makes all links blue, and displayed without an underline.  */
+a:link, a:hover, a:visited, a:visited:hover
+{
+  color: #1940e6;
+  text-decoration: none;
+}
+
+/*  Gives links a gray background when they're hovered over.  */
+a:hover, a:visited:hover
+{
+  background-color: #cccccc;
+}
+
+/*  Provides a little extra spacing between the entries of a list.  */
+li
+{
+  margin-top: 15px;
+}
+
+/*  Prevents space between borders of adjacent table cells.  */
+table
+{
+  border-collapse: collapse;
+}
+
+/*  Makes table header cells left- and top-aligned, and non-bold.  */
+th
+{
+  text-align: left;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+/*==================================*/
+/*=    Sections and Subsections    											=*/
+/*==================================*/
+
+/*  Provides some vertical space between <section> elements (I'm using  */
+/*  <section>s to help break up the main content of some pages). Note   */
+/*  that we don't want to start the page with extra space and then the  */
+/*  first section, so the extra space goes on the bottom.               */
+section
+{
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+
+  max-height: 1000000px;  /* This line is added to fix an annoying feature in mobile browsers where certain */
+                          /* text on the page is resized. See http://stackoverflow.com/q/11694767 */
+}
+
+
+/* === I'm not using subsections, so the subsection formatting Zev uses is commented out below === */
+
+/*section.subsection
+{
+  padding-left: 20px;  /* Indents the subsection slightly */
+
+/*  padding-top: 15px;    /* We also want some vertical space between subsections, but for  */
+/*  padding-bottom: 0;   /* them the logical place to add that space is above, not below.  */
+/*  margin-bottom: 0;
+}
+
+div.subsection
+{
+  padding-left: 20px;  /* Now we indent the content of the subsection even more. Thus the      */
+                       /* subsection title is indented 20px, and the content is indented 40px. */
+/*}*/
+
+
+
+/*  Makes the font size of h2 elements more reasonable.  */
+/*  (I'm using h2 elements as section headings.)         */
+h2
+{
+  font-size: 15pt;
+  font-weight: normal;
+}
+
+/* === I'm not using subsections, so the subsection heading (h3) formatting Zev uses is commented out below === */
+
+/*  Styles h3 elements in a non-standard way.        */
+/*  (I'm using h3 elements as subsection headings.)  */
+/*h3
+{
+  font-size: 11pt;
+  font-weight: normal;
+  font-style: italic;
+}*/
+
+
+/*=====================================*/
+/*=    Important Positioning Stuff    													=*/
+/*=====================================*/
+
+
+/*  My desired effect for the site is that, as the width of the browser window becomes    */
+/*  arbitrarily large, the actual content of the site remains at a fixed width X while    */
+/*  staying horizontally centered in the browser window, and as the width of the          */
+/*  browser window decreases past X, the content stops being centered, "locks in place",  */
+/*  and instead a horizontal scrollbar is provided.                                       */
+/*                                                                                        */
+/*  I decided that for my site, I want X = 800px.                                         */
+
+
+
+/* Note that the following makes the de facto width of the <main> element */
+/* equal to 800px = 700px + (2 * 50px). */                        
+main
+{
+  display: block;  /* In fact it should already be a block element, but some older */
+                   /* browsers don't know this.                                    */
+
+  margin: 0 auto;  /* Centers the <main> element in the browser window. */
+
+  width: 700px;    /* Makes the width of the <main> element equal to 700px. */
+
+  padding: 0 50px; /* Provides 50px of white space on the sides of the <main> element. */
+}
+
+/* The following is a key part of the positioning of the header and footer. */
+html
+{
+  min-height: 100%;   /* Causes the html element to fill the browser window if its contents don't */
+                      /* overflow it, but expand vertically to match its contents if they do.     */
+
+  position: relative; /* Lets us position the header and footer elements relative to the html element. */
+}
+
+/*==============================================*/
+/*=    Important Positioning Stuff:  Header    																=*/
+/*==============================================*/
+
+
+/*  Leaves space for the header by putting all the contents of the body element 85px lower  */
+/*  than the top of the browser window. (The header and footer themselves aren't affected   */
+/*  by this command, since they're absolutely positioned.)                                  */
+/*                                                                                          */
+/*  85px was chosen "manually" to give a fair amount of leeway for the header. Depending    */
+/*  on fonts, margins, any explicit heights you set, and your own personal preferences,     */
+/*  you may want to change this value.                                                      */
+body
+{
+  margin-top: 100px;
+}
+
+header
+{
+  position: absolute; /* These lines position the header against the upper left of the html element */
+  left: 0;            /* because that is its closest ancestor that is positioned relatively.        */
+  top: 0;             /*                                                                            */
+
+  width: 100%;        /* Makes the width of the header equal to the maximum of the width of the browser */
+  min-width: 800px;   /* window, and 800px. Thus, when the browser window shrinks below 800px wide, the */
+                      /* header (and its contents) will "lock in place".                                */
+
+  text-align: center; /* The h1 is a block element, so it fills the width of its parent (namely, the */
+                      /* header element). This will center the content of the h1 within the h1's     */
+                      /* "box". Because the li's are made to be INLINE-block below, the navigation   */
+                      /* links are also centered within the header by this command.                  */
+}
+
+h1
+{
+  margin: 10px 0;   /* Provides some space between the h1 and the browser window, and the h1 and the first hr. */
+  font-size: 22pt; /* Makes the font size of the h1 element more reasonable. */
+  font-weight: normal; /* Makes the h1 element nonbold */
+}
+
+header ul
+{
+  margin: 3px 0;    /* Provides some space between the ul and the two hr's. */
+
+  padding: 0;       /* Lists usually have some default padding-left so the bullets or numbers */
+                    /* are "indented" instead of jutting out. We're making a horizontal list, */
+                    /* so we don't need or want that padding.                                 */
+
+  list-style: none; /* Removes the bullets from the usual ul formatting. */
+}
+
+/* In the HTML code of the header, the (optional) </li>'s are omitted because, */
+/* combined with the inline-block property, they would cause unwanted spaces.  */
+/* See http://stackoverflow.com/q/4969082/ for more information.               */
+header li
+{
+  display: inline-block; /* Enables the li's to be centered by text-align: center, */
+                         /* while also having margins.                             */
+
+  margin: 0 10px;        /* Horizontally spaces the navigation links apart a bit.  */
+                         /* We do this with margins instead of a bunch of &nbsp;'s */
+                         /* because we're civilized people.                        */
+}
+
+
+header a
+{
+  padding: 1px 4px;   /* Extends the gray box of a navigation link outwards slightly. */
+
+  border-radius: 5px; /* Makes the gray box of a navigation link rounded.             */
+
+  /*font-weight: bold;  /* Makes the text of a navigation link bold.                    */
+  font-size: 12pt;
+}
+
+/* Ensures that hr's are 2px high and gray. The border: 0 in the CSS reset has */
+/* the effect of ensuring that the hr's don't have that silly beveled effect.  */
+hr
+{
+  height: 2px;
+  background-color: #999999;
+}
+
+
+/* === I don't have a footer, so the footer formatting Zev uses is commented out below === */
+
+/*==============================================*/
+/*=    Important Positioning Stuff:  Footer    															  =*/
+/*==============================================*/
+
+
+/* Much of this section is analogous to the corresponding styles for the header; */
+/* some of the specific measurements are slightly different, but still have the  */
+/* same purpose. The main difference between the header and footer is that the   */
+/* gray line around the footer is obtained by a border, instead of using hr's.   */
+
+
+/* It isn't necessary for this to equal the body's margin-top; this value */
+/* was also chosen simply by gauging a fair amount of space.              */
+/*body
+{
+  margin-bottom: 85px;
+}
+
+
+footer
+{
+  position: absolute; /* --- */
+/*  left: 0;            /* --- */
+/*  bottom: 0;          /* --- */
+
+/*  width: 100%;        /* --- */
+/*  min-width: 800px;   /* --- */
+
+ /* text-align: center; /* --- */
+
+/*  font-size: 9pt;     /* I wanted the font size in the footer to be a bit smaller. */
+/*}
+
+footer ul
+{
+  width: 700px; /* I'm giving this an explicit width because I don't want it to be quite as   */
+                /* large as the entire footer, as it otherwise would be because ul is a block */
+                /* element and block elements fill the width of their parent by default.      */
+
+ /* margin: 0 auto 25px; /* Now that this ul is smaller than the footer element, we need to center it   */
+                       /* within the footer; that is what the auto margin on the left and right does. */
+                       /* Since li's are centered within the ul by text-align: center, they are now   */
+                       /* centered within the entire footer. The bottom 25px margin puts some space   */
+                       /* below the ul; it's hard to read something on the very bottom of the window. */
+
+ /* border: 2px solid #999999; /* Makes a gray border around the ul in the footer. */
+ /* border-radius: 10px;       /* Makes the border rounded.                        */
+
+ /* padding: 3px; /* Prevents the gray border from being right up against the contents of the ul. */
+
+ /* list-style: none; /* --- */
+/*}
+
+footer li
+{
+  display: inline-block;  /* --- */
+/*  margin: 0 20px;         /* --- */
+/*}
+
+/* Spaces apart the code links slightly. */
+/*footer a.code_link
+{
+  margin: 0 3px;
+}
+
+/* Makes sure the CC-BY icon lines up nicely with the text. */
+/*footer img
+/*{
+/*  vertical-align: text-bottom;
+/*}
+
+
+/*==================================*/
+/*=    Page-Specific: Home Page    											 =*/
+/*==================================*/
+
+
+/* puts the picture to the right of the body text */
+#sitepic
+{
+  float: right;
+  padding-left: 50px;
+}
+
+
+/*adds some padding to the contact info table */
+#contact td,
+#contact th
+{
+  padding: 15px 15px 0 0;
+}
+
+
+
+/*==================================*/
+/*=    Page-Specific: Research Page                                =*/
+/*==================================*/
+
+/* styles the div elements that contain the abstracts */
+
+#preprints div
+{
+	display:none; /* this line makes sure the abstract starts off invisible */
+	margin-left: 1em; /* indents slightly to the left */
+	margin-top: 10px; /* adds some space to the top of the abstract, but less than the space between li */
+	/* elements, which is 15px */
+	line-height:170%;
+}
+
+#publications div
+{
+	display:none; /* this line makes sure the abstract starts off invisible */
+	margin-left: 1em; /* indents slightly to the left */
+	margin-top: 10px; /* adds some space to the top of the abstract, but less than the space between li */
+	/* elements, which is 15px */
+	line-height:170%;
+}
+
+
+
+
+
+

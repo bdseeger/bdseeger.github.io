@@ -1,0 +1,159 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #CC5500;
+    text-decoration: underline;
+}
+
+body {
+    width: 60em;
+    margin: auto;
+    font-family: 'Crimson Text', 'Cardo', 'Sorts Mill Goudy', "Free Serif", "Georgia", serif;
+    font-size: 120%;
+}
+
+h1 {
+    padding: 0.3em;
+    text-align: center;
+    font-weight: normal;
+}
+
+h2 {
+    padding: 0.3em;
+    text-align: center;
+    font-weight: normal;
+}
+
+h3 {
+    padding-top: 1em;
+    border-bottom: 0.05em solid black;
+    font-weight: normal;
+}
+
+.year {
+    color: #CC5500;
+}
+
+.speakerinfo label:after{
+    content: "abstract ±";
+    color: #CC5500;
+    border-bottom: 0.1em dotted;
+    font-size: 90%;
+}
+
+a.speakerpage{
+   color: #CC5500;
+   text-decoration: none;
+}
+
+label{
+    cursor: pointer;
+}
+
+h4 {
+    font-weight: 600;
+    padding-bottom: 0.1em;
+}
+
+.speakerhead{
+	padding: 0.2em;
+    padding-top: 0.37em;
+    font-weight: 200;
+    /*background-color: #E6E6F2;*/
+    background-color: #F2E6E5;
+    border-radius: 0.2em;
+}
+
+p {
+    padding-top: 1ex;
+}
+
+
+.date {
+    padding-top: 0.5em;
+    float: left;
+    width: 8em;
+}
+
+.speakerinfo {
+    padding-top: 0.5em;
+    margin-left: 8em;
+}
+
+.highlight {
+    background-color: #B5B5F4;
+}
+
+.abstract {
+    text-align: justify;
+    font-size: 90%;
+    max-height:20000em;
+    overflow:hidden;
+    transition: 200s;
+}
+
+.abstract a {
+    text-decoration: none;
+    border-bottom: 0.1em dotted;
+}
+
+.footer {
+    text-align: center;
+    font-size: 80%;
+    border-top: solid 0.1em #E6E6F2;
+    margin-bottom: 1em;
+    padding: 0.1em;
+}
+
+.upcoming {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+}
+
+.year:after {
+    content: " ±";
+}
+
+input {
+    display: none;
+}
+
+input:checked + .year + div{
+    display: none;
+}
+
+input:checked + label + .abstract{
+    max-height:0
+}
+
+sup { 
+    vertical-align: text-top;
+    font-size: 80%;
+}
+
+sub { 
+    vertical-align: text-bottom;
+    font-size: 80%;
+}
+
+em em {
+    font-weight: bold;
+}
+
+.speakerinfo {
+    padding-bottom: 2ex;
+}
+
+.abstract p+p {
+    text-indent: 2.5em;
+}
+
+.noindent {
+    padding-top: 0.4em;
+    text-indent: 0 !important;
+}
